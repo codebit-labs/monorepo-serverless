@@ -1,0 +1,18 @@
+{
+  "name": "@codebit-labs/monorepo-world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "sls:package": "sls package --stage development",
+    "sls:deploy": "sls deploy --stage development",
+    "sls:deploy:world": "sls deploy function --function world --stage development"
+  },
+  "devDependencies": {
+    "serverless-layers": "^2.3.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.3.0"
+  }
+}

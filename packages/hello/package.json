@@ -1,0 +1,18 @@
+{
+  "name": "@codebit-labs/monorepo-hello",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "sls:package": "sls package --stage development",
+    "sls:deploy": "sls deploy --stage development",
+    "sls:deploy:hello": "sls deploy function --function hello --stage development"
+  },
+  "devDependencies": {
+    "serverless-layers": "^2.3.1",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "sequelize": "^6.3.5"
+  }
+}
