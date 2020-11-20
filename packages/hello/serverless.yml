@@ -38,9 +38,18 @@ custom:
         - hello
       packageManager: yarn
       dependenciesPath: ./package.json
+  webpack:
+    packages: yarn
+    includeModules:
+      forceExclude:
+        - aws-sdk
+
+package:
+  individually: true
 
 plugins:
   - serverless-layers
+  - serverless-webpack
 
 # you can overwrite defaults here
 #  stage: dev

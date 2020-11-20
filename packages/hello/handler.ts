@@ -1,11 +1,12 @@
-'use strict';
+import { Helper } from "./app/helper";
 
-module.exports.hello = async event => {
+export const hello = async (event: any) => {
+  const helper = new Helper();
   return {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
+        message: `Go Serverless v1.0! ${helper.hello("Yaydoo")}`,
         input: event,
       },
       null,
