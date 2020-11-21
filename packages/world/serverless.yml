@@ -41,6 +41,7 @@ custom:
 
 plugins:
   - serverless-layers
+  - serverless-webpack
 
 # you can overwrite defaults here
 #  stage: dev
@@ -78,6 +79,18 @@ plugins:
 functions:
   world:
     handler: handler.world
+  example:
+    handler: example.event
+    events:
+      - cloudwatchEvent:
+          event:
+            source:
+              - "app.p-card.com"
+            detail-type:
+              - EXAMPLE
+            detail:
+              action:
+               	- "DISPATCH"
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
