@@ -15,9 +15,6 @@ export const hello = async (
   app.use(bodyParser.raw());
   app.use(bodyParser.json());
   app.use("/v1/api", cors(), router);
-  app.get("/", (req: Request, res: Response) => {
-    return res.json({ Hello: "world" });
-  });
 
   const serverlessApp = serverless(app);
   return serverlessApp(event, context);

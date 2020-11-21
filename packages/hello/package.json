@@ -6,7 +6,8 @@
   "scripts": {
     "sls:package": "sls package --stage development",
     "sls:deploy": "sls deploy --stage development",
-    "sls:deploy:hello": "sls deploy function --function hello --stage development"
+    "sls:deploy:hello": "sls deploy function --function hello --stage development",
+    "sls:start": "sls offline start"
   },
   "devDependencies": {
     "@types/cors": "^2.8.8",
