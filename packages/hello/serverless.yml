@@ -14,7 +14,8 @@
 service: codebit-labs-monorepo-hello
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
-#org: your-org-name
+org: barreraandradejulio
+app: monorepo
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
