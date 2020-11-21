@@ -22,7 +22,25 @@ frameworkVersion: "2"
 
 provider:
   name: aws
+  region: us-east-1
+  # you can add statements to the Lambda function's IAM Role here
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - events:PutEvents
+      Resource: "*"
+  #      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+  #    - Effect: "Allow"
+  #      Action:
+  #        - "s3:PutObject"
+  #      Resource:
+  #        Fn::Join:
+  #          - ""
+  #          - - "arn:aws:s3:::"
+  #            - "Ref" : "ServerlessDeploymentBucket"
+  #            - "/*"
   runtime: nodejs12.x
+  stage: ${opt:stage, 'development'}
   tags:
     labs: true
   deploymentBucket:
@@ -43,31 +61,15 @@ custom:
     includeModules:
       forceExclude:
         - aws-sdk
+  serverless-offline-aws-eventbridge:
+    port: 4010
+    debug: true
 
 plugins:
   - serverless-layers
   - serverless-webpack
   - serverless-offline
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
-
-# you can add statements to the Lambda function's IAM Role here
-#  iamRoleStatements:
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:ListBucket"
-#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:PutObject"
-#      Resource:
-#        Fn::Join:
-#          - ""
-#          - - "arn:aws:s3:::"
-#            - "Ref" : "ServerlessDeploymentBucket"
-#            - "/*"
+  - serverless-offline-aws-eventbridge
 
 # you can define service wide environment variables here
 #  environment:
@@ -92,6 +94,9 @@ functions:
           path: /{proxy+}
           method: ANY
           cors: true
+    environment:
+      EVENT_BRIDGE_ENDPOINT: ${file(./.env.${self:provider.stage}.json):EVENT_BRIDGE_ENDPOINT}
+      EVENT_BRIDGE_SOURCE: ${file(./.env.${self:provider.stage}.json):EVENT_BRIDGE_SOURCE}
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
