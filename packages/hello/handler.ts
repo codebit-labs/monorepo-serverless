@@ -1,19 +1,21 @@
-import { Helper } from "./app/helper";
+import bodyParser from "body-parser";
+import cors from "cors";
+import express, { Request, Response } from "express";
+import serverless from "serverless-http";
 
-export const hello = async (event: any) => {
-  const helper = new Helper();
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: `Go Serverless v1.0! ${helper.hello("Yaydoo")}`,
-        input: event,
-      },
-      null,
-      2
-    ),
-  };
+import { router } from "./router";
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+export const hello = async (
+  event: AWSLambda.APIGatewayProxyEvent,
+  context: AWSLambda.Context
+) => {
+  const app: any = express();
+  app.use(bodyParser.text());
+  app.use(bodyParser.urlencoded());
+  app.use(bodyParser.raw());
+  app.use(bodyParser.json());
+  app.use("/v1/api", cors(), router);
+
+  const serverlessApp = serverless(app);
+  return serverlessApp(event, context);
 };
