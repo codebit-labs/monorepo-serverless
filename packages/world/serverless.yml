@@ -27,6 +27,7 @@ provider:
     labs: true
   deploymentBucket:
     name: yaydoo-labs-monorepo-serverless
+  stage: ${opt:stage, 'development'}
 
 custom:
   serverless-layers:
@@ -41,6 +42,7 @@ custom:
 
 plugins:
   - serverless-layers
+  - serverless-webpack
 
 # you can overwrite defaults here
 #  stage: dev

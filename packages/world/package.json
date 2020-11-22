@@ -9,10 +9,15 @@
     "sls:deploy:world": "sls deploy function --function world --stage development"
   },
   "devDependencies": {
-    "serverless-layers": "^2.3.1"
+    "serverless": "^2.12.0",
+    "serverless-layers": "^2.3.1",
+    "ts-loader": "^8.0.11"
   },
   "dependencies": {
+    "@codebit-labs/monorepo-core": "^1.0.0",
     "express": "^4.17.1",
-    "joi": "^17.3.0"
+    "inversify": "^5.0.1",
+    "joi": "^17.3.0",
+    "reflect-metadata": "^0.1.13"
   }
 }

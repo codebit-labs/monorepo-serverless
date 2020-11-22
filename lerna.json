@@ -1,7 +1,7 @@
 {
   "individually": true,
   "npmClient": "yarn",
-  "packages": ["packages/*", "services/*"],
+  "packages": ["packages/*", "libraries/*"],
   "version": "0.0.0",
   "useWorkspaces": true,
   "command": {

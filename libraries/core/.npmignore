@@ -1,0 +1,7 @@
+/core.ts
+/example
+/src/
+/tsconfig.json
+/webpack.config.js
+.npmrc
+/codebit-labs-monorepo-core-*.tgz
