@@ -63,6 +63,18 @@ If you try install multiples packages with lerna there is a bug and isn't recogn
 
 Install two dependencies in shortcut mode
 
+### Note 1
+
+I was tested rebind option with @provider decorator from \*inversify-binding-decorators\* I would have wished overwrite injection reference with only put it the provider decorator in the replacement class but this is test wasn't success.
+
+#### Update
+
+If I import the file of this manner `import 'path'` the container find the injector and build local providers but is unable to rebind references of injectors
+
+### Note 2
+
+Very importantly understand that the order in that load the container modules affect the way of the behaviour of the imported classes
+
 ```bash
 [yarn add|npm install] @commitlint/{cli,config-conventional}
 ```
