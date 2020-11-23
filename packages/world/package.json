@@ -1,6 +1,6 @@
 {
   "name": "@codebit-labs/monorepo-world",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "private": true,
   "dependencies": {
-    "@codebit-labs/monorepo-core": "^0.0.1",
+    "@codebit-labs/monorepo-core": "^0.0.2",
     "express": "^4.17.1",
     "inversify": "^5.0.1",
     "inversify-binding-decorators": "^4.0.0",
