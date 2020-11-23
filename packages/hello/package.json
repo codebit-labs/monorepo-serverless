@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "private": "true",
   "scripts": {
     "sls:package": "sls package --stage development",
     "sls:deploy": "sls deploy --stage development",
