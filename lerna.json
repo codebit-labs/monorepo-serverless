@@ -1,12 +1,20 @@
 {
   "individually": true,
   "npmClient": "yarn",
-  "packages": ["packages/*", "libraries/*"],
-  "version": "0.0.0",
+  "packages": [
+    "packages/*",
+    "libraries/*"
+  ],
+  "version": "0.0.1",
   "useWorkspaces": true,
   "command": {
     "version": {
-      "allowBranch": ["master", "alpha", "beta", "development"],
+      "allowBranch": [
+        "master",
+        "alpha",
+        "beta",
+        "development"
+      ],
       "message": "chore(release): publish %s"
     }
   }
