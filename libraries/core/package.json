@@ -1,6 +1,6 @@
 {
   "name": "@codebit-labs/monorepo-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/main.js",
   "typings": "dist/core.d.ts",
   "license": "MIT",
