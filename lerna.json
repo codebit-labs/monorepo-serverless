@@ -1,20 +1,15 @@
 {
   "individually": true,
   "npmClient": "yarn",
-  "packages": [
-    "packages/*",
-    "libraries/*"
-  ],
+  "packages": ["packages/*", "libraries/*"],
   "version": "0.0.1",
   "useWorkspaces": true,
   "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com"
+    },
     "version": {
-      "allowBranch": [
-        "master",
-        "alpha",
-        "beta",
-        "development"
-      ],
+      "allowBranch": ["master", "alpha", "beta", "development"],
       "message": "chore(release): publish %s"
     }
   }
